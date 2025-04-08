@@ -6,7 +6,7 @@ from .models import User, Team, Activity, Leaderboard, Workout
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    base_url = 'https://organic-engine-6r9gpp9g9j434qpv-8000.app.github.dev/'
+    base_url = os.getenv('BASE_URL', 'https://default-url.com/')
     return Response({
         'users': base_url + 'api/users/',
         'teams': base_url + 'api/teams/',
